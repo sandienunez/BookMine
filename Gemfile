@@ -13,6 +13,7 @@ gem 'bcrypt'
 gem 'tux'
 gem 'faker'
 gem 'launchy'
+gem 'rack-flash3'
 
 group :test do
   gem 'rspec'

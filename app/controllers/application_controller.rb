@@ -2,6 +2,10 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base
 
+  # use Rack::Flash
+  #binding.pry
+
+
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -10,8 +14,6 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :welcome
   end
-
-  
 
 
 end
