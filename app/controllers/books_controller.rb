@@ -4,7 +4,7 @@ class BooksController < ApplicationController
     end
 
     get '/books' do 
-        "Here are my books"
-        
+        "Here you can create your own customized book list:"
+
     end
 end
