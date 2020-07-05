@@ -14,17 +14,41 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  get '/login' do
-    if logged_in?
-      session.clear
-      redirect '/login'
+  get '/signup' do
+    if !session[:id] #if its false
+    erb :'users/signup' 
+    #I want my user to go to sign up page so redirect them to users/signup
     else
       redirect '/books'
-    end
+    end 
+  end
+  
+  post '/signup' do 
+    #binding.pry 
+    #i want my user's request to be processed and sent to /signup ??
+  end
 
-    get '/login' do
-      
-    end
+  get '/login' do
+    #binding.pry
+    erb :'users/login'
+  end
+
+   post '/login' do
+    #binding.pry
+  user = User.find_by(username: params[:Username])
+  if user != nil && user.authenticate(params[:Password])
+    session[:user_id] = user.id 
+        redirect '/books'
+    else
+      redirect '/login'
+
+    
+    end 
+  end
+
+  get '/logout' do 
+    session.clear
+    redirect '/login'
   end
 
 end
