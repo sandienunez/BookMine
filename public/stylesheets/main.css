@@ -12,6 +12,7 @@
   }
 
   /* --- Welcome Page Styles --- */
+  
   body {
     background: linear-gradient(to bottom right, #cccc00 21%, #ff9933 100%);
     font-family: Aladin;
@@ -111,5 +112,6 @@
     font-size: 18px;
     line-height: 24px;
   }
+  
   
 }

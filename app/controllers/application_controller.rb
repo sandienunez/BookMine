@@ -19,13 +19,21 @@ class ApplicationController < Sinatra::Base
     erb :'users/signup' 
     #I want my user to go to sign up page so redirect them to users/signup
     else
-      redirect '/books'
+      redirect '/books/new'
     end 
   end
   
   post '/signup' do 
+    #binding.pry     
+    # i want my user's request to be processed and sent to /signup ??
+    if user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id 
+    redirect '/books/new'
     #binding.pry 
-    #i want my user's request to be processed and sent to /signup ??
+    else 
+    redirect '/'
+    end
+  
   end
 
   get '/login' do
@@ -35,14 +43,12 @@ class ApplicationController < Sinatra::Base
 
    post '/login' do
     #binding.pry
-  user = User.find_by(username: params[:Username])
-  if user != nil && user.authenticate(params[:Password])
+  user = User.find_by(email: params[:email])
+  if user != nil && user.authenticate(params[:password])
     session[:user_id] = user.id 
         redirect '/books'
     else
       redirect '/login'
-
-    
     end 
   end
 
@@ -51,4 +57,16 @@ class ApplicationController < Sinatra::Base
     redirect '/login'
   end
 
+  helpers do
+    def current_user
+      @user = User.find_by_id(session[:user_id])
+    end
+
+    def logged_in?
+      !!session[:user_id]
+    end
+
 end
+
+
+end 

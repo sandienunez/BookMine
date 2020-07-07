@@ -1,0 +1,82 @@
+<header>
+  <h1><p style = "font-family:Verdana,arial,helvetica;">
+  Create my BookGenie List:
+  </p>
+  </h1>
+  </header> 
+
+<fieldset>
+
+    
+<form action="/books" method="POST" >
+
+
+	<label>Book Title</label>
+    <hr><input type="text" name="Book Title">
+    <p>  </p>
+
+    <label>Author</label>
+    <hr><input type="text" name="Author">
+    <p>  </p>
+	
+     <label>Book Genre</label>
+     <hr><input type="text" name="Book Genre">
+     <p>  </p>
+     <label>Number of Pages</label>
+     <hr><input type="text" name="Number of Pages">
+     <p>  </p>
+     <label>Starting Date</label>
+     <hr><label for="date">Select a date:</label>
+     <input type="date" id="myDate" value="2020-07-06" name="start">    
+     <p id="demo"></p>
+     
+     <script>
+     function myFunction() {
+       var x = document.getElementById("myDate").value;
+       document.getElementById("demo").innerHTML = x;
+     }
+     </script>
+     
+   
+
+     <p>  </p>
+     <label>End Date</label>
+     <hr><label for="date">Select a date:</label>
+    <input type="date" id="myDate" value="2020-07-06" name="end">    
+     <p id="demo"></p>
+     
+     <script>
+     function myFunction() {
+       var x = document.getElementById("myDate").value;
+       document.getElementById("demo").innerHTML = x;
+     }
+     </script>
+     
+   
+
+     <hr><label>1st Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label for="time">Select a time:</label>
+  <input type="time" id="1st_time" name="time_1">
+
+     </select>
+     <p>  </p>
+     <hr><label>2nd Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label for="time">Select a time:</label>
+     <input type="time" id="2nd_time" name="time_2">
+        
+	 </select>
+     <p>  </p>
+     <hr><label>Have I read this book yet?</label>
+     <hr><select id="Select option" name="read">
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	 </select>
+     
+    <br>
+    <p>  </p>
+    <a href="http://127.0.0.1:9393/books"><button>Add to BookGenie List</button></a>
+    </form>
+    </fieldset>
+	 <br>
+
+     
