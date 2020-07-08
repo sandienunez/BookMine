@@ -68,5 +68,8 @@ class ApplicationController < Sinatra::Base
 
 end
 
+get '/incentives/new' do
+  "Make your incentives here:"
+end
 
 end 

@@ -1,0 +1,15 @@
+<h3>Hi<h3>
+
+<% @books.each do |book| %> 
+
+
+    <! -- iterate over each book object -->
+    <p><a href="/books/<%= book.id %>/edit">Edit Book </a></p> 
+    
+    <form method="book_post" action="/books/<%= book.id %>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input id="delete" name="delete" type="submit" value="Delete" />
+    </form>
+<% end %>
+
+    

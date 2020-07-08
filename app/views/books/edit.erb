@@ -1,14 +1,75 @@
 <header>
   <h1><p style = "font-family:Verdana,arial,helvetica;">
- My BookGenie List:
+ Edit BookGenie List:
   </p>
   </h1>
   </header> 
-
 <fieldset>
+<form action="/books/<%=@book.id %>" method="POST" >
+<input type="hidden" id="hidden" name="_method" value="patch">
 
-    
-<form method="post" action="/books" id="book_list">
+<br><label>Book Title</label>
+    <hr><input type="text" name="Book Title">
+    <p>  </p>
 
-<a href="/books/new">Add new book here</a>
-    
+    <label>Author</label>
+    <hr><input type="text" name="Author">
+    <p>  </p>
+	
+     <label>Book Genre</label>
+     <hr><input type="text" name="Book Genre">
+     <p>  </p>
+     <label>Number of Pages</label>
+     <hr><input type="text" name="Number of Pages">
+     <p>  </p>
+     <label>Starting Date</label>
+     <hr><label for="date">Select a date:</label>
+     <input type="date" id="myDate" value="2020-07-06" name="start">    
+     <p id="demo"></p>
+     
+     <script>
+     function myFunction() {
+       var x = document.getElementById("myDate").value;
+       document.getElementById("demo").innerHTML = x;
+     }
+     </script>
+     
+   
+
+     <p>  </p>
+     <label>End Date</label>
+     <hr><label for="date">Select a date:</label>
+    <input type="date" id="myDate" value="2020-07-06" name="end">    
+     <p id="demo"></p>
+     
+     <script>
+     function myFunction() {
+       var x = document.getElementById("myDate").value;
+       document.getElementById("demo").innerHTML = x;
+     }
+     </script>
+     
+   
+
+     <hr><label>1st Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label for="time">Select a time:</label>
+  <input type="time" id="1st_time" name="time_1">
+
+     </select>
+     <p>  </p>
+     <hr><label>2nd Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label for="time">Select a time:</label>
+     <input type="time" id="2nd_time" name="time_2">
+        
+	 </select>
+     <p>  </p>
+     <hr><label>Have I read this book yet?</label>
+     <hr><select id="Select option" name="read">
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	 </select>
+     
+    <br>
+    <p>  </p>
+    <input type="submit" value="submit">
+    </form>
