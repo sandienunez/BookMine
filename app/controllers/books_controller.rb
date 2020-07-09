@@ -21,7 +21,7 @@ class BooksController < ApplicationController
 
     post '/books' do
         #binding.pry
-        @book = Book.create(params)
+        @book = Book.create(book_title: params[:book_title], author: params[:author], book_genre: params[:book_genre], number_of_pages: params[:number_of_pages], start: params[:start], end: params[:end], time_one: params[:time_one], time_two: params[:time_two], read: params[:read])
         if @book 
         # erb :'books/edit'
         #binding.pry
@@ -47,6 +47,14 @@ class BooksController < ApplicationController
 
      patch '/books/:id' do
         @book = Book.find_by_id(params[:id])
+        book.update(book_title: params[:book_title], author: params[:author], book_genre: params[:book_genre], number_of_pages: params[:number_of_pages], start: params[:start], end: params[:end], time_one: params[:time_one], time_two: params[:time_two], read: params[:read])
         redirect "/books/#{@book.id}"
+      end
+
+      delete '/books/:id/delete' do
+        @book = Book.find_by_id(params[:id])
+        book.destroy
+        redirect "/books"
+
       end
 end

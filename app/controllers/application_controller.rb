@@ -28,6 +28,8 @@ class ApplicationController < Sinatra::Base
     # i want my user's request to be processed and sent to /signup ??
     if user = User.create(email: params[:email], password: params[:password])
     session[:user_id] = user.id 
+    flash[:notice] = "Thanks for signing up!"
+
     redirect '/books/new'
     #binding.pry 
     else 
