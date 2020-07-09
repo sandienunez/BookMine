@@ -7,9 +7,9 @@
     <! -- iterate over each book object -->
     <p><a href="/books/<%= book.id %>/edit">Edit Book </a></p> 
 
-    <form method="POST" action="/books/<%=book.id%>">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input id="delete" name="delete" type="submit" value="Delete" />
+   <form method="POST" action="/books/<%=@book.id%>"> 
+<input type="hidden" id="hidden" name="_method" value="delete">
+<input type="submit" name="" value="Delete Book">
     </form>
 <% end %>
 

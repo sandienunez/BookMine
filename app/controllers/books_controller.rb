@@ -67,8 +67,8 @@ class BooksController < ApplicationController
 
       delete '/books/:id' do
         book = Book.find_by_id(params[:id])
-        binding.pry
-        if session[:user_id] !=book.user_id
+        #binding.pry
+        if session[:user_id] != book.user_id
           redirect '/books'
         else 
           book.destroy
