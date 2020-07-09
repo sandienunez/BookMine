@@ -33,7 +33,7 @@ class BooksController < ApplicationController
 
      get '/books/:id' do 
         @book = Book.find_by_id(params[:id])
-        if session[:user_id] == @book.user_id 
+        if session[:user] == @book.user
          erb :'books/show'
         else 
         redirect '/books' #to routes 
