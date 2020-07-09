@@ -10,6 +10,7 @@ class CreateBooks < ActiveRecord::Migration
       t.time :time_one
       t.time :time_two
       t.boolean :read
+      t.string :user_id
     end 
       
     

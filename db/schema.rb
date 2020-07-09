@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20200707211154) do
     t.time    "time_one"
     t.time    "time_two"
     t.boolean "read"
+    t.string  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
