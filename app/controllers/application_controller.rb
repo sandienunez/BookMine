@@ -45,7 +45,7 @@ class ApplicationController < Sinatra::Base
 
    post '/login' do
     #binding.pry
-  user = User.find_by(email: params[:email])
+  user = User.find_by(email: params[:email].strip)
   if user != nil && user.authenticate(params[:password])
     session[:user_id] = user.id 
         redirect '/books'
@@ -70,8 +70,8 @@ class ApplicationController < Sinatra::Base
 
 end
 
-get '/incentives/new' do
-  "Make your incentives here:"
-end
+# get '/incentives/new' do
+#   "Make your incentives here:"
+# end
 
 end 
