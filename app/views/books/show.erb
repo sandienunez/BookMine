@@ -3,7 +3,12 @@
 
     <h2>Books</h2>
 
-<form method="POST" action="/books/<%=@book.id%>"> 
-<input type="hidden" id="hidden" name="_method" value="delete">
+
+<div style="text-align: center;">
+  <a href="/books/<%= @book.id %>/edit" style="text-align: center;">Edit Book</a>
+</div>
+<form action="/books/<%= @book.id %>/delete" method="post">
+
+<hr><input type="hidden" id="hidden" name="_method" value="delete">
 <input type="submit" name="" value="Delete Book">
 </form>

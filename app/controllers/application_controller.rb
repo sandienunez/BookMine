@@ -24,14 +24,12 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/signup' do 
-    #binding.pry     
     # i want my user's request to be processed and sent to /signup ??
     if user = User.create(email: params[:email], password: params[:password])
     session[:user_id] = user.id 
     flash[:notice] = "Thanks for signing up!"
 
     redirect '/books/new'
-    #binding.pry 
     else 
     redirect '/'
     end
@@ -39,12 +37,10 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/login' do
-    #binding.pry
     erb :'users/login'
   end
 
-   post '/login' do
-    #binding.pry
+  post '/login' do
   user = User.find_by(email: params[:email].strip)
   if user != nil && user.authenticate(params[:password])
     session[:user_id] = user.id 
@@ -70,8 +66,5 @@ class ApplicationController < Sinatra::Base
 
 end
 
-# get '/incentives/new' do
-#   "Make your incentives here:"
-# end
 
-end 
+end

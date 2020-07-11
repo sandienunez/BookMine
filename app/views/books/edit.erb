@@ -9,22 +9,22 @@
 <input type="hidden" id="hidden" name="_method" value="patch">
 
 <br><label>Book Title</label>
-    <hr><input type="text" name="Book Title">
+    <hr><input type="text" name="Book Title" value="<%= @book.book_title %>">
     <p>  </p>
 
     <label>Author</label>
-    <hr><input type="text" name="Author">
+    <hr><input type="text" name="Author" value="<%= @book.author %>">
     <p>  </p>
 	
      <label>Book Genre</label>
-     <hr><input type="text" name="Book Genre">
+     <hr><input type="text" name="Book Genre" value="<%= @book.book_genre %>">
      <p>  </p>
      <label>Number of Pages</label>
-     <hr><input type="text" name="Number of Pages">
+     <hr><input type="text" name="Number of Pages" value="<%= @book.number_of_pages %>">
      <p>  </p>
      <label>Starting Date</label>
      <hr><label for="date">Select a date:</label>
-     <input type="date" id="myDate" value="2020-07-06" name="start">    
+     <input type="date" id="myDate" name="start" value="<%= @book.start %>">    
      <p id="demo"></p>
      
      <script>
@@ -39,7 +39,7 @@
      <p>  </p>
      <label>End Date</label>
      <hr><label for="date">Select a date:</label>
-    <input type="date" id="myDate" value="2020-07-06" name="end">    
+    <input type="date" id="myDate" name="end" value="<%= @book.end %>">   
      <p id="demo"></p>
      
      <script>
@@ -50,21 +50,20 @@
      </script>
      
    
-
      <hr><label>1st Time in Day I can commit to reading (For 5 minute minimum):</label>
      <hr><label for="time">Select a time:</label>
-  <input type="time" id="1st_time" name="time_1">
+  <input type="time" id="1st_time" name="time_1" value="<%= @book.time_one %>">
 
      </select>
      <p>  </p>
      <hr><label>2nd Time in Day I can commit to reading (For 5 minute minimum):</label>
      <hr><label for="time">Select a time:</label>
-     <input type="time" id="2nd_time" name="time_2">
+     <input type="time" id="2nd_time" name="time_2" value="<%=@book.time_two.strftime("%k:%M %p")%>"></input>
         
 	 </select>
      <p>  </p>
      <hr><label>Have I read this book yet?</label>
-     <hr><select id="Select option" name="read">
+     <hr><select id="Select option" name="read" value="<%= @book.read %>">
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
 	 </select>
