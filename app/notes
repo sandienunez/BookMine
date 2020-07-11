@@ -1,0 +1,194 @@
+<form action="/books/<%=@book.id%>" method="POST" >
+<input type="hidden" id="hidden" name="_method" value="patch"><label>Starting Date</label>
+     <hr><label for="date">Select a date:</label>
+     <input type="date" id="myDate" name="start" value="<%= @book.start %>">    
+     <p id="demo"></p>
+     
+     <script>
+     function myFunction() {
+       var x = document.getElementById("myDate").value;
+       document.getElementById("demo").innerHTML = x;
+     }
+     </script>
+     
+
+<script>
+     function myFunction() {
+       var x = document.getElementById("myDate").value;
+       document.getElementById("demo").innerHTML = x;
+     }
+     </script>
+
+
+
+Edit BookGenie List:
+  </p>
+  </h1>
+  </header> 
+<fieldset>
+<form action="/books/<%=@book.id%>" method="POST" >
+<input type="hidden" id="hidden" name="_method" value="patch">
+
+
+header>
+  <h1><p style = "font-family:Verdana,arial,helvetica;">
+ Edit BookGenie List:
+  </p>
+  </h1>
+  </header> 
+<fieldset>
+<form action="/books/<%=@book.id%>" method="POST" >
+<input type="hidden" id="hidden" name="_method" value="patch">
+
+
+
+-----
+edit.erb file 
+
+<br><label>Book Title</label>
+    <hr><input type="text" name="Book Title" value="<%=book.book_title %>">
+    <p>  </p>
+
+    <label>Author</label>
+    <hr><input type="text" name="Author" value="<%= book.author %>">
+    <p>  </p>
+	
+     <label>Book Genre</label>
+     <hr><input type="text" name="Book Genre" value="<%= book.book_genre %>">
+     <p>  </p>
+     <label>Number of Pages</label>
+     <hr><input type="text" name="Number of Pages" value="<%=book.number_of_pages %>">
+     <p>  </p>
+     <label>Starting Date</label>
+     <hr><label for="date">Select a date:</label>
+     <input type="date" id="myDate" name="start" value="<%=book.start %>">    
+     <p id="demo"></p>
+     
+     
+   
+
+     <p>  </p>
+     <label>End Date</label>
+     <hr><label for="date">Select a date:</label>
+    <input type="date" id="myDate" name="end" value="<%=book.end %>">   
+     <p id="demo"></p>
+     
+   
+     <hr><label>1st Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label for="time">Select a time:</label>
+  <input type="time" id="1st_time" name="time_1" value="<%=book.time_one %>">
+
+     </select>
+     <p>  </p>
+     <hr><label>2nd Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label for="time">Select a time:</label>
+     <input type="time" id="2nd_time" name="time_2" value="<%=book.time_two.strftime("%k:%M %p")%>"></input>
+        
+	 </select>
+     <p>  </p>
+     <hr><label>Have I read this book yet?</label>
+     <hr><select id="Select option" name="read" value="<%=book.read %>">
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	 </select>
+     
+    <br>
+    <p>  </p>
+    <a href="/books/<%=book.id%>/edit">Update</a>
+    <%end%> 
+
+
+    -----
+    time + date 
+
+         <div class="main">
+          <h1> The appointments are : </h1>
+           <%@apt.each do |a| %>
+            <h2> Patient Name : <%=a.patient.name %> </h2>
+            <br>
+            <h2> Doctor Name : <%=a.doctor.name %> </h2>
+            <br>
+            <h2> Appointment Time : <%=a.time.strftime("%I:%M %p")%> </h2>
+            <br>
+            <h2>Appointment Date : <%=a.date%> </h2>
+            <a href="/appointments/<%=a.id%>/edit">Update</a>
+          <%end%>
+        </div>
+
+        ---
+        edit.erb old file 
+
+        <header>
+  <h1><p style = "font-family:Verdana,arial,helvetica;">
+ Edit BookGenie List:
+  </p>
+  </h1>
+  </header> 
+<fieldset>
+<form action="/books/<%=@book.id%>" method="POST" >
+<input type="hidden" id="hidden" name="_method" value="patch">
+
+<br><label>Book Title</label>
+    <hr><input type="text" name="Book Title" value="<%= @book.book_title %>">
+    <p>  </p>
+
+    <label>Author</label>
+    <hr><input type="text" name="Author" value="<%= @book.author %>">
+    <p>  </p>
+	
+     <label>Book Genre</label>
+     <hr><input type="text" name="Book Genre" value="<%= @book.book_genre %>">
+     <p>  </p>
+     <label>Number of Pages</label>
+     <hr><input type="text" name="Number of Pages" value="<%= @book.number_of_pages %>">
+     <p>  </p>
+     <label>Starting Date</label>
+     <hr><label for="date">Select a date:</label>
+     <input type="date" id="myDate" name="start" value="<%= @book.start %>">    
+     <p id="demo"></p>
+     
+     <script>
+     function myFunction() {
+       var x = document.getElementById("myDate").value;
+       document.getElementById("demo").innerHTML = x;
+     }
+     </script>
+     
+   
+
+     <p>  </p>
+     <label>End Date</label>
+     <hr><label for="date">Select a date:</label>
+    <input type="date" id="myDate" name="end" value="<%= @book.end %>">   
+     <p id="demo"></p>
+     
+     <script>
+     function myFunction() {
+       var x = document.getElementById("myDate").value;
+       document.getElementById("demo").innerHTML = x;
+     }
+     </script>
+     
+   
+     <hr><label>1st Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label for="time">Select a time:</label>
+  <input type="time" id="1st_time" name="time_1" value="<%= @book.time_one %>">
+
+     </select>
+     <p>  </p>
+     <hr><label>2nd Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label for="time">Select a time:</label>
+     <input type="time" id="2nd_time" name="time_2" value="<%=@book.time_two.strftime("%k:%M %p")%>"></input>
+        
+	 </select>
+     <p>  </p>
+     <hr><label>Have I read this book yet?</label>
+     <hr><select id="Select option" name="read" value="<%= @book.read %>">
+		<option value="yes">Yes</option>
+		<option value="no">No</option>
+	 </select>
+     
+    <br>
+    <p>  </p>
+    <input type="submit" value="submit">
+    </form>

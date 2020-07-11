@@ -1,19 +1,11 @@
-<h1>My BookGenie List.<h1>
-
-<h3><% @books.each do |book| %><h3>
-<%=book.book_title%>
-
-
-    <! -- iterate over each book object -->
-    <p><a href="/books/<%= book.id %>/edit">Edit Book </a></p> 
-   <form method="POST" action="/books/<%=book.id%>"> 
-   
-
-<input type="hidden" id="hidden" name="_method" value="delete">
-<input type="submit" name="" value="Delete Book">
-    </form>
-
-<% end %>
+<div class="main">
+    <ul>
+        <li> <a href="/books/new">Create Book</a></li>
+        <li> <a href="/view">View Books</a></li>
+        <li> <a href="/edit">Edit Books</a></li>
+        <li> <a href="/delete">Delete Books</a></li>
+    </ul>
+</div>
 
 
 

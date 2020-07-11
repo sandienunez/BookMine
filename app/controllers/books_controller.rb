@@ -40,6 +40,26 @@ class BooksController < ApplicationController
 
         #READ: index action, renders an index view 
 
+        get '/view' do 
+          if logged_in?
+            @user = current_user
+           erb :'books/view'
+          end 
+        end
+
+        get '/edit' do 
+          if logged_in?
+            @user = current_user
+             @books = @user.books 
+             erb :'books/edit'
+          end 
+        end
+
+        get '/delete' do 
+          if logged_in?
+            @user = current_user
+          end 
+        end
 
      get '/books/:id' do 
         @book = Book.find_by_id(params[:id])
@@ -54,8 +74,10 @@ class BooksController < ApplicationController
 
 
      get '/books/:id/edit' do
+      if logged_in?
+        @user = current_user
         @book = Book.find_by_id(params[:id])
-        erb :'books/edit'
+        erb :'books/update'
      end
     #UPDATE: edit action, renders edit view
 
@@ -78,5 +100,5 @@ class BooksController < ApplicationController
         end 
       end
           #DELETE: deletes action, deletes resource, then redirects --> triggered by button in the show and or index view
-
 end
+end 
