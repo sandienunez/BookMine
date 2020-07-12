@@ -192,3 +192,11 @@ edit.erb file
     <p>  </p>
     <input type="submit" value="submit">
     </form>
+
+-------------
+    edit.erb
+    
+     <% @books.each.do |book|%>
+  <%= book.book_title%>
+  <br><a href="/books/<%=book.id%>/edit" style="text-align: center;">Back</a>
+ <%end%>

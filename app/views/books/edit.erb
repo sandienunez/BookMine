@@ -1,7 +1,8 @@
 
-<h1> Edit BookGenie List: </h1> 
- <% @books.each.do |book|%>
-  <%= book.book_title%>
-  <br><a href="/books/<%=book.id%>/edit" style="text-align: center;">Back</a>
- <%end%>
+<h1> Edit BookGenie </h1> 
+<%@user.books.each do |book|%>
+    <%=book.book_title%>
+
+ <br><a href="/books/<%=book.id%>/edit">Edit</a>
+<%end%>
 
