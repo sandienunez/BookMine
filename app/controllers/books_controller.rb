@@ -65,10 +65,12 @@ class BooksController < ApplicationController
         get '/books/:id/delete' do 
           if logged_in?
             @user = current_user
-          end
+           # binding.pry
           @book = Book.find_by_id(params[:id])
           erb :'books/remove'
         end
+      end 
+    
 
 
      get '/books/:id' do 

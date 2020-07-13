@@ -1,4 +1,7 @@
 <div class="main">
+<div style="text-align: right;">
+<a href="/logout" class="button">Log Out</a>
+</div>
     <ul>
         <li> <a href="/books">Home</a></li>
         <li> <a href="/view">My Bookgenie List</a></li>
@@ -8,19 +11,20 @@
     </ul>
    
 </div>
-<header>
-  <h1><p style = "font-family:Verdana,arial,helvetica;">
-  Create my BookGenie List:
-  </p>
-  </h1>
-  </header> 
+  <div style="text-align: center;">
+<h1>C R E A T E  </h1>
+<br><h1>M Y </h1>  
+<br><h3>B O O K G E N I E</h3>  
+<br><h1>L I S T !</h1>  
+
+
 
 <fieldset>
 
     
 <form action="/books" method="POST" >
 
-
+<div style="text-align: center;">
 	<label>Book Title</label>
     <hr><input type="text" name="Book Title">
     <p>  </p>
@@ -80,15 +84,19 @@
      <hr><select id="Select option" name="read">
 		<option value="yes">Yes</option>
 		<option value="no">No</option>
-	 </select>
+    </select>
+    
      
     <br>
     <p>  </p>
     <a href="http://127.0.0.1:9393/books"><button>Add to BookGenie List</button></a>
     <br><a href="/books" style="text-align: center;">Back</a>
     </form>
+    </div>
     </fieldset>
    
+
+
 
    
 

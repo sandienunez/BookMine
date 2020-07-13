@@ -141,3 +141,16 @@ li a {
   display: block;
   padding: 8px; 
 } 
+
+  .button {
+    background-color: #1ED760;
+    border: none;
+    color: white;
+    padding: 16px 48px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
