@@ -28,7 +28,6 @@ class BooksController < ApplicationController
         #binding.pry
         if logged_in?
           @user = current_user #making connection with book and user class, fetching user instance for current user 
-        end
           @book = Book.create(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
             if @book 
               @user.books << @book 
@@ -36,6 +35,7 @@ class BooksController < ApplicationController
             else
               redirect '/books/new'
             end 
+        end 
     end 
 
         #READ: index action, renders an index view 
@@ -58,28 +58,39 @@ class BooksController < ApplicationController
         get '/delete' do 
           if logged_in?
             @user = current_user
+            erb :'books/delete'
           end 
+        end 
+
+        get '/books/:id/delete' do 
+          if logged_in?
+            @user = current_user
+          end
+          @book = Book.find_by_id(params[:id])
+          erb :'books/remove'
         end
+
 
      get '/books/:id' do 
         @book = Book.find_by_id(params[:id])
         
         if session[:user_id] == @book.user_id
-         erb :'books/show'
+          erb :'books/show'
         else 
-        redirect '/books' #to routes 
+          redirect '/books' #to routes 
         end 
     end 
   #READ: show action, renders a show view 
 
 
      get '/books/:id/edit' do
-      if logged_in?
-        @user = current_user
-        @book = Book.find_by_id(params[:id])
-        #binding.pry 
-        erb :'books/update'
-     end
+        if logged_in?
+          @user = current_user
+          @book = Book.find_by_id(params[:id])
+          erb :'books/update'
+        end
+      end
+
     #UPDATE: edit action, renders edit view
 
 
@@ -93,13 +104,12 @@ class BooksController < ApplicationController
 
       delete '/books/:id' do
         book = Book.find_by_id(params[:id])
-        if session[:user_id] != book.user_id
-          redirect '/books'
-        else 
-          book.destroy
-        redirect '/books'
-        end 
+          if session[:user_id] != book.user_id
+            redirect '/books'
+          else 
+            book.destroy
+            redirect '/books'
+          end 
       end
           #DELETE: deletes action, deletes resource, then redirects --> triggered by button in the show and or index view
-end
 end 

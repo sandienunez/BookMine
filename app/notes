@@ -200,3 +200,19 @@ edit.erb file
   <%= book.book_title%>
   <br><a href="/books/<%=book.id%>/edit" style="text-align: center;">Back</a>
  <%end%>
+
+
+----
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+  background-color: #75f7f2;
+}
+
+
+----
+<form action="/books/<%=@book.id%>" method="POST" >
+<input type="hidden" id="hidden" name="_method" value="patch">
