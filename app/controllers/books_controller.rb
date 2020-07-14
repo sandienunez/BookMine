@@ -71,17 +71,18 @@ class BooksController < ApplicationController
         end
       end 
     
-
-
      get '/books/:id' do 
+      if logged_in?
         @book = Book.find_by_id(params[:id])
-        
         if session[:user_id] == @book.user_id
           erb :'books/show'
         else 
           redirect '/books' #to routes 
         end 
+      else 
+        redirect '/login'
     end 
+  end  
   #READ: show action, renders a show view 
 
 

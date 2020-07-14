@@ -5,18 +5,24 @@
     <ul>
         <li> <a href="/books">Home</a></li>
         <li> <a href="/view">My Bookgenie List</a></li>
-        <li> <a href="/books/new">Add Book</a></li>
-        <li> <a href="/edit">Edit Books</a></li>
-        <li> <a href="/delete">Delete Books</a></li>
+    
     </ul>
    
 
+    </div>
+    <div style="text-align: center;">
+  <h1>E D I T </h1>
+  <br><h1>M Y </h1>  
+  <br><h3>B O O K G E N I E</h3>  
+  <br><h1>L I S T !</h1>  
+<header><img src="images/lamp.png" class="img-responsive main-image"></header>
+
 <h2> Select the book you want to edit: </h2> 
-<br><%@user.books.each do |book|%>
-<br><%=book.book_title%>
- <br><a href="/books/<%=book.id%>/edit">Edit</a>
+<h2><%@user.books.each do |book|%></h2> 
+<h3><%=book.book_title%></h3> 
+<a href="/books/<%=book.id%>/edit">Edit</a>
  <br><%end%>
 
-
+ </div>
 
 

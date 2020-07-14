@@ -1,4 +1,8 @@
 require './config/environment'
+
+require_relative 'app/controllers/books_controller'
+require_relative 'app/controllers/users_controller'
+
 #this allows us to use HTTP methods like puts/patch
 require 'rack-flash'
 use Rack::MethodOverride
