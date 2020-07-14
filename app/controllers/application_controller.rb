@@ -8,7 +8,6 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "f650ed69344bab0084199bb8cc9aa5a1bd6756c3b57ad67023255af0fc3795057e"
-  use Rack::Flash
   end
 
   get "/" do
@@ -23,10 +22,6 @@ class ApplicationController < Sinatra::Base
 
     def logged_in?
       !!session[:user_id]
-    end
-
-    def redirect_if_not_logged_in
-      redirect '/login' if !logged_in?
     end
 
 end

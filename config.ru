@@ -10,6 +10,7 @@ use Rack::MethodOverride
 
 
 use UsersController
+use SessionsController
 use BooksController  #mounting controllers
 # this requires any images and css that are stored in the /public directory
 use Rack::Static, :root => 'public', :urls => ['/images', '/stylesheets']

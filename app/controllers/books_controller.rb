@@ -1,28 +1,24 @@
 class BooksController < ApplicationController
-  use Rack::Flash
+
+  get '/books' do 
+    if logged_in?
+      @books = current_user.books
+        erb :"/books/index"
+      else
+        redirect to "/users"
+      end       
+  end
+#CREATE --->create action, handles form data, then redirects
 
     get '/books/new' do
-        if logged_in?
-            current_user
-            erb :"/books/new"
+      if logged_in?
+        current_user
+        erb :"/books/new"
           else
             redirect to "/"
           end
     end
       #CREATE --> NEW ACTION, renders new view
-
-
-    get '/books' do 
-        if logged_in?
-          @books = current_user.books
-          #binding.pry
-            erb :"/books/index"
-          else
-            redirect to "/users"
-          end       
-    end
-
-      #CREATE --->create action, handles form data, then redirects
 
 
     post '/books' do
