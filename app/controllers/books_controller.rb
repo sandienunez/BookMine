@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
-    get '/books/new' do
+  use Rack::Flash
 
+    get '/books/new' do
         if logged_in?
             current_user
             erb :"/books/new"

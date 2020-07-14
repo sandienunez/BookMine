@@ -233,3 +233,10 @@ to center hmtl text:
 <div style="text-align: center;">
 <br><a href="/books/<%= @book.id %>/edit" style="text-align: center;">Edit Book</a>
 </div>
+
+--------
+ <div style="text-align: left;">
+      <hr><button type="submit" value="submit">Login</button>
+      <a href="/login" class="button">Continue</a>
+
+<br><a href="/signup" class="button">Sign up</a>

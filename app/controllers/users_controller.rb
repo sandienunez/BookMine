@@ -1,46 +1,24 @@
 class UsersController < ApplicationController
     use Rack::Flash
 
-
-     get '/signup' do
-        if !session[:id] #if its false
-        erb :'users/signup' 
-        #I want my user to go to sign up page so redirect them to users/signup
-        else
+    get '/signup' do
+      if !session[:id] #if its false
+      erb :'users/signup' 
+      #I want my user to go to sign up page so redirect them to users/signup
+      else
+        redirect '/books/new'
+      end 
+    end
+    
+    post '/signup' do 
+      # i want my user's request to be processed and sent to /signup 
+       user = User.new(email: params[:email], password: params[:password])
+      if user.save #how you validate if user gives all info 
+      session[:user_id] = user.id 
+      flash[:notice] = "Thanks for signing up!"
           redirect '/books/new'
-        end 
+      end 
+          redirect '/'
       end
-      
-      post '/signup' do 
-        # i want my user's request to be processed and sent to /signup 
-         user = User.new(email: params[:email], password: params[:password])
-        if user.save #how you validate if user gives all info 
-        session[:user_id] = user.id 
-        flash[:notice] = "Thanks for signing up!"
-            redirect '/books/new'
-        else 
-            redirect '/'
-        end
-      end
-    
-      get '/login' do
-        erb :'users/login'
-      end
-    
-      post '/login' do
-      user = User.find_by(email: params[:email].strip)
-      #binding.pry
-      if user && user.authenticate(params[:password])
-        session[:user_id] = user.id 
-            redirect '/books'
-        else
-          redirect '/login'
-        end 
-      end
-    
-      get '/logout' do 
-        session.clear
-        redirect '/'
-      end     
 
 end
