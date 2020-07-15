@@ -14,13 +14,13 @@
   /* --- Welcome Page Styles --- */
   
   body {
-    background: linear-gradient(to bottom right, #cccc00 21%, #ff9933 100%);
+    background: linear-gradient(to bottom right, #0446f5 21%, #ff9933 100%);
     font-family: Aladin;
     line-height: 20px;
   }
 
   .wrapper {
-    background: linear-gradient(to bottom, #ff0066 9%, #9933ff 100%);
+    background: linear-gradient(to bottom, #eb623a 9%, #9933ff 100%);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -118,19 +118,23 @@
 
 ul {
   list-style-type: none;
+  font-size: 22px;
+  color: white;
     margin: 0;
     position: fixed;
     top: 0;
     Left: 0;
     width: 100%;
-  margin: 0;
-  padding: 0;
+    height: 8%;
+    margin: 0 auto;
+    padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  background-color: #75f7f2;
+  background-color: #d54754;
+  border: 3px solid rgb(0, 255, 255);
 }
 
 li {
@@ -163,4 +167,26 @@ li a {
     color: white;
   }
 
+  .block {
+    background-color: #75f7f2;
+    border: none;
+    color: white;
+    width: 95%;
+    padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+    border-radius: 12px;
+    border: 2px solid #eb623a
+    transition-duration: 0.4s;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+  }
+
+  .block:hover {
+    background-color: #eb623a; 
+    color: white;
+  }
   

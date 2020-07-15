@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   get '/books' do 
     if logged_in?
       @books = current_user.books
+      flash[:notice] = "Welcome!!"
         erb :"/books/index"
       else
         redirect to "/users"

@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       user = User.find_by(email: params[:email].strip)
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id 
+        flash[:notice] = "Welcome Back!!"
         redirect '/books'
        else
         redirect '/login'
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
     
       get '/logout' do 
       if logged_in?
-        flash[:notice] = "Thanks for signing up!"
+        flash[:notice] = "You have successfully logged out! Have an amazing BookGenie Day!"
         session.clear
         redirect '/'
       end  

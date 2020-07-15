@@ -240,3 +240,7 @@ to center hmtl text:
       <a href="/login" class="button">Continue</a>
 
 <br><a href="/signup" class="button">Sign up</a>
+
+----
+logo: 
+  <header><img src="images/Bookgenielogo.png" class="img-responsive main-image"></header>

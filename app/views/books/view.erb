@@ -12,24 +12,32 @@
  
 <div style="text-align: center;">
 <h1>M Y  </h1>
-<br><h1>A M A Z I N G</h1>  
 <br><h3>B O O K G E N I E</h3>  
-<br><h1>L I S T !</h1>  
+<br><h1>L I S T </h1>  
 </div>
 
 <div style="text-align: center;">
-<header><img src="images/cookies.jpg" class="img-responsive main-image"></header>
-</div>
-<br><h2><%@user.books.each do |book|%><h2>
-<br><%=book.book_title%>
-<br><%end%>
+<header><img src="images/unnamed.jpg" class="img-responsive main-image"></header>
 
 
-<div style="text-align: left;">
-<a href="/edit" class="button">Edit Books</a>
-<a href="/delete" class="button">Delete Books</a>
-<a href="/books/new" class="button">Add Books</a>
-</div>
+
+<h2><%@user.books.each do |book|%></h2> 
+<h2><%=book.book_title%></h2> 
+<a href="/books/<%=book.id%>/edit" class="button">Edit</a>
+<a href="/books/<%=book.id%>/delete" class="button">Delete</a>
+
+ <br><%end%>
+
+
+ <a href="/books/new" class="block">Add Books</a>
+ </div>
+  
+
+
+ 
+
+
+
 
  
   
