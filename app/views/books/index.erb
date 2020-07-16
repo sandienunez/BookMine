@@ -1,15 +1,23 @@
-<% flash.keys.each do |type| %> 
-  <% flash[type] %>
-    <% end %>
+
+<p>  </p>
+<p>  </p>
+<p>  </p>
+<p>  </p>
 <div class="main">
 <div style="text-align: right;">
 <a href="/logout" class="button">Log Out</a>
 </div>
 
+
+<% if flash[:notice] %>
+    <h3 style="color:purple;"><%= flash[:notice] %></h3>
+<% end %>
+
 <ul>
-<li> <a href="/books">Home-Playlist</a></li>
-<li> <a href="/view">My Bookgenie List</a></li>
+<li> <a href="/books" class="button">Home-Playlist</a></li>
+<li> <a href="/view" class="button">My Bookgenie List</a></li>
 </ul>
+
 <div style="text-align: center;">
 <img src="images/gold.png" class="img-responsive main-image">
 </div>
@@ -29,20 +37,33 @@
 <header><img src="images/bookpic.jpg" class="img-responsive main-image"></header>
 </div>
 
+<div style="text-align: center;">
+    <h2><p>If you don't have Spotify, no problem! Click play below:</p></h2>
 
+<audio controls autoplay>
+<source src="pianootherside.ogg" type="audio/ogg">
+<source src="pianootherside.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 
-    <div style="text-align: center;">
-    <audio controls autoplay>
+  <br><audio controls >
+    <source src="classical1.ogg" type="audio/ogg">
+    <source src="classical1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
+<br><audio controls >
+     <source src="rollingstone.ogg" type="audio/ogg">
+    <source src="rollingstone.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
+  <br><audio controls >
     <source src="beyonce.ogg" type="audio/ogg">
     <source src="beyonce.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
   </audio>
-  <br><audio controls >
-    <source src="classical.ogg" type="audio/ogg">
-    <source src="classical.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-  </audio>
-
+  
   <br><audio controls >
     <source src="yousay.ogg" type="audio/ogg">
     <source src="yousay.mp3" type="audio/mpeg">
@@ -79,11 +100,7 @@ Your browser does not support the audio element.
 Your browser does not support the audio element.
 </audio>
 
-<br><audio controls >
-<source src="pianootherside.ogg" type="audio/ogg">
-<source src="pianootherside.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
+
 </div>
 
 

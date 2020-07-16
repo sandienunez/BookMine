@@ -1,3 +1,12 @@
+<% if flash[:error] %>
+    <h3 style="color:blue;"><%= flash[:error] %></h3>
+<% end %>
+
+
+<% if flash[:notice] %>
+    <h3 style="color:green;"><%= flash[:notice] %></h3>
+<% end %>
+
 <header>
   <h1><p style = "font-family:Verdana,arial,helvetica;">
   Sign up for free to start reading.
@@ -15,9 +24,10 @@
     <hr><label>password</label>
     <hr><input type="text" name="password">
     <p>  </p>
-    <hr><label>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</label>
+      <input type="checkbox" id="check" name="check" value="terms">
+<label for="check"> By signing up, you agree to our Terms, Data Policy and Cookies Policy.</label><br>
+    
           <hr><button type="submit" class="button" value="submit">Signup</button>
-    <hr><button type="submit" value="submit">Signup</button>
     <h3> Have an account? 
     <br><a href="/login" class="button">Log in</a>
 

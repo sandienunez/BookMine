@@ -133,8 +133,8 @@ ul {
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  background-color: #d54754;
-  border: 3px solid rgb(0, 255, 255);
+  background-color: #0d43f5;
+  border: 3px solid #a23025(0, 255, 255);
 }
 
 li {
@@ -147,7 +147,7 @@ li a {
 } 
 
   .button {
-    background-color: #0446f5;
+    background-color: #0d43f5;
     border: none;
     color: white;
     padding: 16px 48px 18px;

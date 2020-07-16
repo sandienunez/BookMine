@@ -1,3 +1,11 @@
+<% if flash[:error] %>
+    <h3 style="color:blue;"><%= flash[:error] %></h3>
+<% end %>
+
+
+<% if flash[:notice] %>
+    <h3 style="color:purple;"><%= flash[:notice] %></h3>
+<% end %>
 
 <div style="text-align: right;">
 <a href="/signup" class="button">Signup</a>
@@ -29,17 +37,20 @@ Your browser does not support the audio element.
 <div style="text-align: center;">
 
 <h2><p style = "font-family:Verdana,arial,helvetica;">
-YOU AIN'T NEVER HAD A FRIEND LIKE ME! 
-Wish you could finishing reading all those books on your booklist? 
-Wish you could finally keep track of all your recommended books?
-BookGenie is here to grant you those wishes!
-  </p>
-  </h2>
+
+Wish you could finally finish reading all those dusty books on your shelf?</h2>
+
+<h1><p style = "font-family:Verdana,arial,helvetica;">
+BookGenie is here to grant your wish.   </h1>
+<p>  </p>
+<h1><p style = "font-family:Verdana,arial,helvetica;">
+YOU AIN'T NEVER HAD A FRIEND LIKE ME! </h1>
+ 
   <img src="/images/ppl.jpg" /> 
 
   <h3><p style = "font-family:Verdana,arial,helvetica;">
 1. <a href="/signup" class="button">Signup</a> <hr><p style = "font-family:Verdana,arial,helvetica;"> 2. Create & store your personal book list! <hr><p style = "font-family:Verdana,arial,helvetica;"> 3. Set reading schedule<hr> 
-  </p>
+
   </h3>
   </div>
 
