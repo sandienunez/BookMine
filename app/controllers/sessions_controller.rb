@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
     get '/login' do
-        #binding.pry
         erb :'sessions/login'
         #render my login form
       end

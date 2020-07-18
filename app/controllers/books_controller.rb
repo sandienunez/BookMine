@@ -3,9 +3,9 @@ class BooksController < ApplicationController
   get '/books' do 
     if logged_in?
       @books = current_user.books
-      flash[:notice] = "Welcome!!"
         erb :"/books/index"
       else
+        flash[:notice] = "Welcome!!"
         redirect to "/users"
       end       
   end
@@ -23,7 +23,6 @@ class BooksController < ApplicationController
 
 
     post '/books' do
-        #binding.pry
         if logged_in?
           @user = current_user #making connection with book and user class, fetching user instance for current user 
           @book = Book.create(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
@@ -63,7 +62,6 @@ class BooksController < ApplicationController
         get '/books/:id/delete' do 
           if logged_in?
             @user = current_user
-           # binding.pry
           @book = Book.find_by_id(params[:id])
           erb :'books/remove'
         end
@@ -98,6 +96,7 @@ class BooksController < ApplicationController
      patch '/books/:id' do
         book = Book.find_by_id(params[:id])
         book.update(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
+    #binding.pry
         redirect "/books/#{book.id}"
       end
             #UPDATE action, handles form data, then redirects 

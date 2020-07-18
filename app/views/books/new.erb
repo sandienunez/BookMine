@@ -1,6 +1,4 @@
-<% flash.keys.each do |type| %> 
-  <% flash[type] %>
-  <% end %>
+
 
 
 <div class="main">
@@ -46,8 +44,9 @@
      <p>  </p>
      <label>Starting Date</label>
      <hr><label for="date">Select a date:</label>
-     <input type="date" id="myDate" value="2020-07-06" name="start">    
+     <input type="date" id="myDate" name="start">    
      <p id="demo"></p>
+
      
      <script>
      function myFunction() {
@@ -61,7 +60,7 @@
      <p>  </p>
      <label>End Date</label>
      <hr><label for="date">Select a date:</label>
-    <input type="date" id="myDate" value="2020-07-06" name="end">    
+    <input type="date" id="myDate" name="end">    
      <p id="demo"></p>
      
      <script>
@@ -73,13 +72,13 @@
      
    
 
-     <hr><label>1st Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label>1st time I can read (Atleast 5 minutes): </label>
      <hr><label for="time">Select a time:</label>
   <input type="time" id="1st_time" name="time_1">
 
      </select>
      <p>  </p>
-     <hr><label>2nd Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label>2nd time I can read (Atleast 5 minutes):</label>
      <hr><label for="time">Select a time:</label>
      <input type="time" id="2nd_time" name="time_2">
         
@@ -91,6 +90,13 @@
 		<option value="no">No</option>
     </select>
     
+
+
+
+
+
+
+
      
     <br>
     <p>  </p>

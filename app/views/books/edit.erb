@@ -20,7 +20,7 @@
 <h2> Select the book you want to edit: </h2> 
 <h2><%@user.books.each do |book|%></h2> 
 <h3><%=book.book_title%></h3> 
-<a href="/books/<%=book.id%>/edit">Edit</a>
+<a href="/books/<%= book.id %>/edit">Edit</a>
  <br><%end%>
 
  </div>

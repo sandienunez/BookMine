@@ -20,7 +20,7 @@
 
 <h2><%@user.books.each do |book|%></h2> 
 <h3><%=book.book_title%></h3>
-<a href="/books/<%=book.id%>/delete">Delete</a>
+<a href="/books/<%= book.id %>/delete">Delete</a>
  <br><%end%>
 
  <br><a href="/books" style="text-align: center;">Back to Home</a>

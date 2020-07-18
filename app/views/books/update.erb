@@ -11,6 +11,9 @@
     </ul>
    
 </div>
+
+  <div style="text-align: center;">
+
 <h1><p style = "font-family:Verdana,arial,helvetica;">
  Genie, my wish is to edit this book!
   </p>
@@ -19,7 +22,7 @@
 
  
 <fieldset>
-<form action="/books/<%=@book.id%>" method="POST" >
+<form action="/books/<%= @book.id %>" method="POST" >
 <input type="hidden" id="hidden" name="_method" value="patch">
 
 <br><label>Book Title</label>
@@ -64,15 +67,15 @@
      </script>
      
    
-     <hr><label>1st Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label>1st time I can read (Atleast 5 minutes): </label>
      <hr><label for="time">Select a time:</label>
   <input type="time" id="1st_time" name="time_1" value="<%= @book.time_one %>">
 
      </select>
      <p>  </p>
-     <hr><label>2nd Time in Day I can commit to reading (For 5 minute minimum):</label>
+     <hr><label>2nd time I can read (Atleast 5 minutes):</label>
      <hr><label for="time">Select a time:</label>
-     <input type="time" id="2nd_time" name="time_2">
+     <input type="time" id="2nd_time" name="time_2" value="<%= @book.time_two %>">
         
 	 </select>
      <p>  </p>
@@ -84,6 +87,8 @@
      
     <br>
     <p>  </p>
-    <hr><button type="submit" class="button" value="submit">Submit</button>
 
+<input type="submit" class="button" value="Add to BookGenie">
     </form>
+
+    </div>
