@@ -12,7 +12,7 @@ Simply sign up for free, create and store your personal booklist and set your re
 
 # Motivation
 
-With how fast paced social media, the news outlets, techonology and more is evolving, it can be hard to not be distracted and make time to finally check off those books on your booklist for ages. Let us help you take away the stress of planning when to start and end your books and help you find suitable times in your daily schedule to fit 5 minutes of reading. Everyone has 5 minutes to spare! Many studies have shown how reading can decrease stress levels, help you have more empathy, leave you feeling inspired and spark creativity or understanding in other projects you are working on! Use BookGenie during this COVID-19 crisis to unleash your inner bookworm and read (as Lionel Richie would say) all night long! All night long!!!
+With how fast paced social media, the news outlets, techonology and more is evolving, it can be hard to not be distracted and make time to finally check off those books that have been on your booklist for ages. Let us help you take away the stress of planning when to start and end your books and help you find suitable times in your daily schedule to fit 5 minutes of reading. Everyone has 5 minutes to spare! Many studies have shown how reading can decrease stress levels, help you have more empathy, leave you feeling inspired and spark creativity or understanding in other projects you are working on! Use BookGenie during this COVID-19 crisis to unleash your inner bookworm and read (as Lionel Richie would say) all night long! All night long!!!
 
 ## Installation
 Eventually, BookGenie will be a fully-fledged website. At the moment, installation of the project can be performed locally with the following steps:
