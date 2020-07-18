@@ -42,4 +42,4 @@ MIT © https://github.com/sandienunez
 
 ## Code of Conduct
 
-Everyone interacting in the JoyfulBites project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the https://github.com/sandienunez/BookGenie/blob/master/app/CODE_OF_CONDUCT.md
+Everyone interacting in the BookGenie project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the https://github.com/sandienunez/BookGenie/blob/master/app/CODE_OF_CONDUCT.md
