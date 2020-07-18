@@ -5,7 +5,7 @@ class BooksController < ApplicationController
       @books = current_user.books
         erb :"/books/index"
       else
-        flash[:notice] = "Welcome!!"
+        flash[:notice] = "Welcome!"
         redirect to "/users"
       end       
   end
