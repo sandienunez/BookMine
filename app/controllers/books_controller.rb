@@ -22,19 +22,19 @@ class BooksController < ApplicationController
       #CREATE --> NEW ACTION, renders new view
 
 
-    post '/books' do
+      post '/books' do
         if logged_in?
           @user = current_user #making connection with book and user class, fetching user instance for current user 
           @book = Book.create(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
-            if @book 
-              @user.books << @book 
+          @book.user = @user
+          @book.save
+          if @book 
               redirect "/books/#{@book.id}"
             else
               redirect '/books/new'
             end 
         end 
-    end 
-
+    end
         #READ: index action, renders an index view 
 
         get '/view' do 
