@@ -84,6 +84,7 @@ class BooksController < ApplicationController
   #READ: show action, renders a show view 
 
 
+
      get '/books/:id/edit' do
         if logged_in?
           @user = current_user
@@ -112,5 +113,11 @@ class BooksController < ApplicationController
             redirect '/books'
           end 
       end
-          #DELETE: deletes action, deletes resource, then redirects --> triggered by button in the show and or index view
-end 
+       
+      
+      #DELETE: deletes action, deletes resource, then redirects --> triggered by button in the show and or index view
+      # def authorized_to_edit?(book)
+      #   book.user == current_user
+      # end
+    
+  end 
