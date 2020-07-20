@@ -3,7 +3,7 @@
 
 # BookGenie
 
-Welcome to the BookGenie app! This is an easy to use CRUD, MVC app created using Sinatra and ActiveRecord to offer a magical place where your friend BookGenie stores all the books you've been dying to read all your life. Yes, those dusty books stacked on your bookshelf, the ones hidden by your bedside table and used as coffee table decorations around your house that you have not gotten around to finishing since highschool. As our world faces a global pandemic, take this time to relax and sit down with a book! BookGenie also offers a free Reading Book Cafe that has a bomb zen playlist that will take your imagination to the next level and enjoy some peaceful tunes while you read! 
+Welcome to the BookGenie app! This is an easy to use CRUD, MVC app created using Sinatra and ActiveRecord to offer a magical place where your friend BookGenie stores all the books you've been dying to read all your life. Yes, those dusty books stacked on your bookshelf, the ones hidden by your bedside table and used as coffee table decorations around your house that you have not gotten around to finishing since high school. As our world faces a global pandemic, take this time to relax and sit down with a book! BookGenie also offers a free Reading Book Cafe that has a bomb zen playlist that will take your imagination to the next level and enjoy some peaceful tunes while you read! 
 
 Take BookGenie wherever you are on the go via our mobile app, share your BookGenie list with friends and set custom reading and time schedules that help you map out the timeframe of when you want to finish your books!
 
