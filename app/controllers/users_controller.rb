@@ -12,7 +12,7 @@ class UsersController < ApplicationController
        user = User.new(email: params[:email], password: params[:password])
       if user.save #how you validate if user gives all info 
       session[:user_id] = user.id 
-      flash[:notice] = "Thanks for signing up!"
+      flash[:notice] = "Thanks for signing up #{user.email}!"
           redirect '/books' 
       else 
           redirect '/'   
