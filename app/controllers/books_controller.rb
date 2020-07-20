@@ -6,7 +6,7 @@ class BooksController < ApplicationController
         erb :"/books/index"
       else
         flash[:notice] = "Welcome!"
-        redirect to "/users"
+        redirect to "/"
       end       
   end
 #CREATE --->create action, handles form data, then redirects
