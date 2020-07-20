@@ -32,9 +32,8 @@ class BooksController < ApplicationController
           if @book.save
               redirect "/books/#{@book.id}"
             else
-              binding.pry
-              redirect '/books/new'
               #binding.pry
+              redirect '/books/new'
             end 
         end 
     end
