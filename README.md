@@ -25,7 +25,7 @@ Eventually, BookGenie will be a fully-fledged website. Currently, installation o
 
 ## Usage
 
-    1. Run rake 'db:migrate' from your command line.
+    1. Run 'rake db:migrate' from your command line.
     2. Run 'shotgun' from your command line. Then you can go to your browser and view the application.
     3. Visit localhost:[port-number] (the port number will be specified after running shotgun).
     
