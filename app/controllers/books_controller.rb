@@ -56,6 +56,7 @@ class BooksController < ApplicationController
         # end 
 
         get '/books/:id/delete' do 
+          binding.pry
           if logged_in?
             @user = current_user
           @book = Book.find_by_id(params[:id])
