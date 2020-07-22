@@ -1,109 +1,46 @@
-
-<p>  </p>
-<p>  </p>
-<p>  </p>
-<p>  </p>
 <div class="main">
 <div style="text-align: right;">
 <a href="/logout" class="button">Log Out</a>
 </div>
-
-
-<% if flash[:notice] %>
-    <h3 style="color:purple;"><%= flash[:notice] %></h3>
-<% end %>
-
-<ul>
-<li> <a href="/books" class="button">Home-Playlist</a></li>
-<li> <a href="/view" class="button">My Bookgenie List</a></li>
-</ul>
-
-<div style="text-align: center;">
-<img src="images/gold.png" class="img-responsive main-image">
+    <ul>
+        <li> <a href="/home" class="button">Home-Playlist</a></li>
+        <li> <a href="/books" class="button">My Bookgenie List</a></li>
+    </ul>
+   
 </div>
 
-    <div style="text-align: center;">
-    <br><h1>W E L C O M E to your Reading Book Cafe</h1>
-
-<header><img src="images/hey.jpg" class="img-responsive main-image"></header>
-</div>
+ 
 <div style="text-align: center;">
-    <h2><p>Please enjoy our curated BookGenie playlist below while you read:</p></h2>
-    </div>
-
-    <div style="text-align: center;">
-    <iframe src="https://open.spotify.com/embed/playlist/6TWRnBSNkEry1RuMt3V5h1" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
-<header><img src="images/bookpic.jpg" class="img-responsive main-image"></header>
+<h1>M Y  </h1>
+<br><h3>B O O K G E N I E</h3>  
+<br><h1>L I S T </h1>  
 </div>
 
 <div style="text-align: center;">
-    <h2><p>If you don't have Spotify, no problem! Click play below:</p></h2>
+<img src="images/unnamed.jpg" class="img-responsive main-image">
 
-<audio controls autoplay>
-<source src="pianootherside.ogg" type="audio/ogg">
-<source src="pianootherside.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
 
-  <br><audio controls >
-    <source src="classical1.ogg" type="audio/ogg">
-    <source src="classical1.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-  </audio>
 
-<br><audio controls >
-     <source src="rollingstone.ogg" type="audio/ogg">
-    <source src="rollingstone.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-  </audio>
+<h2><%@user.books.each do |book|%></h2> 
+<h2><%=book.book_title%></h2> 
 
-  <br><audio controls >
-    <source src="beyonce.ogg" type="audio/ogg">
-    <source src="beyonce.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-  </audio>
+<a href="/books/<%= book.id %>/edit" class="button">Edit</a>
+<a href="/books/<%= book.id %>/delete" class="button">Delete</a>
+
+ <br><%end%>
+
+
+ <a href="/books/new" class="block">Add Books</a>
+ </div>
   
-  <br><audio controls >
-    <source src="yousay.ogg" type="audio/ogg">
-    <source src="yousay.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-  </audio>
-
-  <br><audio controls >
-    <source src="music2.ogg" type="audio/ogg">
-    <source src="music2.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-  </audio>
-
-  <br><audio controls >
-  <source src="piano2.ogg" type="audio/ogg">
-  <source src="piano2.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<br><audio controls >
-  <source src="relax.ogg" type="audio/ogg">
-  <source src="relax.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<br><audio controls >
-<source src="flood.ogg" type="audio/ogg">
-<source src="flood.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<br><audio controls >
-<source src="otherside.ogg" type="audio/ogg">
-<source src="otherside.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
 
 
-</div>
+ 
 
 
 
 
-    
+ 
+  
+
+  

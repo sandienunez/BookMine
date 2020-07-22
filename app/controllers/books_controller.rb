@@ -1,24 +1,8 @@
 class BooksController < ApplicationController
 
-  get '/books' do 
-    if logged_in?
-      @books = current_user.books
-        erb :"/books/index"
-      else
-        flash[:notice] = "Welcome!"
-        redirect to "/"
-      end       
-  end
+  
 #CREATE --->create action, handles form data, then redirects
 
-    get '/books/new' do
-      if logged_in?
-        current_user
-        erb :"/books/new"
-          else
-            redirect to "/"
-          end
-    end
       #CREATE --> NEW ACTION, renders new view
 
 
@@ -39,33 +23,43 @@ class BooksController < ApplicationController
     end
         #READ: index action, renders an index view 
 
-        get '/view' do 
+       get '/books/new' do
+         if logged_in?
+          erb :'books/new'
+         else 
+          redirect '/'
+         end
+       end
+
+        get '/books' do #index route 
           if logged_in?
             @user = current_user
-           erb :'books/view'
+           erb :'books/index'
+          else 
+            redirect '/'
           end 
         end
 
         get '/edit' do 
           if logged_in?
             @user = current_user
-             @books = @user.books 
+             @book = @user.book
              erb :'books/edit'
           end 
         end
 
-        get '/delete' do 
-          if logged_in?
-            @user = current_user
-            erb :'books/delete'
-          end 
-        end 
+        # get '/delete' do 
+        #   if logged_in?
+        #     @user = current_user
+        #     erb :'books/delete'
+        #   end 
+        # end 
 
         get '/books/:id/delete' do 
           if logged_in?
             @user = current_user
           @book = Book.find_by_id(params[:id])
-          erb :'books/remove'
+          erb :'books/index'
         end
       end 
     
@@ -116,8 +110,6 @@ class BooksController < ApplicationController
        
       
       #DELETE: deletes action, deletes resource, then redirects --> triggered by button in the show and or index view
-      # def authorized_to_edit?(book)
-      #   book.user == current_user
-      # end
+    
     
   end 
