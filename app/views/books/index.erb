@@ -22,10 +22,19 @@
 
 
 <h2><%@user.books.each do |book|%></h2> 
-<h2><%=book.book_title%></h2> 
+<h2><%=book.book_title%></h2>
+<h3><%=book.author 
+<h3><%=book.book_genre
 
-<a href="/books/<%= book.id %>/edit" class="button">Edit</a>
-<a href="/books/<%= book.id %>/delete" class="button">Delete</a>
+<br><a href="/books/<%= book.id %>/edit" class="button">Edit</a></b>
+
+<form action="/books/<%= book.id %>/delete" method="post">
+            <input id="hidden" type="hidden" name="_method" value="delete">
+    
+     <button class="button">Delete</button>
+
+
+
 
  <br><%end%>
 

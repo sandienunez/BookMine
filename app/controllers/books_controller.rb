@@ -55,14 +55,14 @@ class BooksController < ApplicationController
         #   end 
         # end 
 
-        get '/books/:id/delete' do 
-          binding.pry
-          if logged_in?
-            @user = current_user
-          @book = Book.find_by_id(params[:id])
-          erb :'books/index'
-        end
-      end 
+      #   get '/books/:id/delete' do 
+      #     #binding.pry
+      #     if logged_in?
+      #       @user = current_user
+      #     @book = Book.find_by_id(params[:id])
+      #     erb :'books/index'
+      #   end
+      # end 
     
      get '/books/:id' do 
       if logged_in?
@@ -80,13 +80,24 @@ class BooksController < ApplicationController
 
 
 
-     get '/books/:id/edit' do
-        if logged_in?
-          @user = current_user
-          @book = Book.find_by_id(params[:id])
-          erb :'books/update'
-        end
-      end
+get '/books/:id/edit' do
+  if logged_in?
+    @user = current_user
+    #explain is this too dry?
+    @book = Book.find_by_id(params[:id])
+    #go over find by id 
+    # :id = means dynamic, can change
+    erb :'books/edit'
+    if authorized_to_edit?(@book)
+      erb :'books/edit'
+    else
+      flash[:error] = "You are not authorized to edit these books! You are not the user! :)"
+      redirect '/books'
+    end 
+  else 
+    redirect '/login'
+  end 
+end
 
     #UPDATE: edit action, renders edit view
 
@@ -99,14 +110,15 @@ class BooksController < ApplicationController
             #UPDATE action, handles form data, then redirects 
 
 
-      delete '/books/:id' do
-        book = Book.find_by_id(params[:id])
-          if session[:user_id] != book.user_id
-            redirect '/books'
-          else 
-            book.destroy
-            redirect '/books'
-          end 
+      delete '/books/:id/delete' do
+        @book = Book.find_by_id(params[:id])
+        #binding.pry
+        if authorized_to_edit?(@book)
+          @book.destroy 
+          redirect '/books'
+        else
+          redirect '/home'
+        end
       end
        
       

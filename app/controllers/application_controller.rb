@@ -28,21 +28,21 @@ class ApplicationController < Sinatra::Base
       end       
   end
 
-  helpers do
-    def current_user
-      @user = User.find_by_id(session[:user_id])
-    end
+helpers do
+  def current_user
+    @user = User.find_by_id(session[:user_id])
+  end
 
-    def logged_in?
-      !!session[:user_id]
-    end
+  def logged_in?
+    !!session[:user_id]
+  end
 
-    def authorized_to_edit?(book)
-        book.user == current_user
-      end
+  def authorized_to_edit?(book)
+    book.user_id == current_user.id
+  end
 
 end
 
- 
+
 
 end 
