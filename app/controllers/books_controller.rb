@@ -77,8 +77,8 @@ end
 
 
      patch '/books/:id' do
-        current_user.books.find_by_id(params[:id])
-        book = Book.find_by_id(params[:id])
+        book = current_user.books.find_by_id(params[:id])
+      #finding the book from the collection of the user's books instead of going through ALL the books
         book.update(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
         redirect "/books/#{book.id}"
       end

@@ -1,6 +1,6 @@
 
   
-@media screen {
+@media screen 
   /* --- Reset Styles --- */
   * {
     list-style: none;
@@ -82,10 +82,9 @@
     border-top: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;
-  }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) 
   .wrapper {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -115,8 +114,6 @@
     line-height: 24px;
   }
   
-  
-}
 
 ul {
   list-style-type: none;
