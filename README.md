@@ -9,6 +9,21 @@ Take BookGenie wherever you are on the go via our mobile app, share your BookGen
 
 Simply sign up for free, create and store your personal booklist and set your reading schedule! 
 
+## Restful Routes and CRUD Actions
+
+REST => Representation State Transfer => set of conventions for structuring our ROUTES and mapping them to CRUD actions (Create, Read, Update, Delete).
+
+  | HTTP VERB | ROUTE | ACTION   | CRUD Function |
+| ------------- |-------------| ----------- | ------------------- |
+| GET |  /books  | index | Read |
+| GET | /books/:id | show | Read |
+| GET | /books/new | new | Create |
+| POST | /books | create | Create |
+| GET | /books/:id/edit | edit | Update |
+| PATCH (PUT)* | /books/:id | update | Update |
+| DELETE | /books/:id | delete | Delete |
+
+*(patch modifies, put replaces)
 
 # Motivation
 
@@ -30,18 +45,6 @@ Eventually, BookGenie will be a fully-fledged website. Currently, installation o
     3. Visit localhost:[port-number] (the port number will be specified after running shotgun).
 
 From there, you can create your personal BookGenie reading lists, add books, edit books and delete books! Make sure to listen to our bomb reading playlist to jam along to while you get your inner reading book worm on!
-
-## Restful Routes and CRUD Actions
-
-  | HTTP VERB | ROUTE | ACTION   | CRUD Function |
-| ------------- |-------------| ----------- | ------------------- |
-| GET |  /books  | index | Read |
-| GET | /books/:id | show | Read |
-| GET | /books/new | new | Create |
-| POST | /books | create | Create |
-| GET | /books/:id/edit | edit | Update |
-| PATCH (PUT)* | /books/:id | update | Update |
-| DELETE | /books/:id | delete | Delete |
 
 ## Contributing
 
