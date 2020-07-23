@@ -12,15 +12,40 @@
 </div>
 
 <div style="text-align: center;">
-<h1> G E N I E  </h1>
-  <br><h1>G R A N T E D </h1>  
-  <br><h3>Y O U R</h3>  
-  <br><h1>W I S H </h1>  
+
+<br><h1> Show me my book </h1></b> 
+<br><h1>G E N I E </h1></b>
+
   <img src="/images/books1.png" /> 
-   <h1>Your new book has been added to your BookGenie list below:</h1>
-<h2><%= @book.book_title %></h2>
-<a href="/books/<%= @book.id %>/edit" class="button" style="text-align: center;">Edit Book</a>
 
-</div>
+<h1><%= @book.book_title %></h2>
+<h3>Author: </h3>
+<p> <%=@book.author%></p>
+<h3>Genre: </h3>
+<p> <%=@book.book_genre%></p>
+<h3>Number of Pages: </h3>
+<p> <%=@book.number_of_pages%></p>
+<h3>I will start this book on:  </h3>
+<p> <%=@book.start%></p>
+<h3>I will finish this book by: </h3>
+<p> <%=@book.end%></p>
+<h3>1st time I can read this book: </h3>
+<p> <%=@book.time_one%></p>
+<h3>2nd time I can read this book: </h3>
+<p> <%=@book.time_two%></p>
+<h3>Have I read this book yet?</h3>
+<p> <%=@book.read%></p>
 
-<a href="/books/new" class="block">Add Books</a>
+
+<a href="/books/<%= @book.id %>/edit" class="button">Edit</a></b>
+
+<form method="POST" action="books/<%= @book.id %>%"> 
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <button class="button">Delete</button>
+</form>
+
+ </div>
+
+
+
+

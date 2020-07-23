@@ -1,4 +1,5 @@
-<div class="main">
+ <br>
+ <div class="main">
 <div style="text-align: right;">
 <a href="/logout" class="button">Log Out</a>
 </div>
@@ -22,26 +23,27 @@
 
 
 <h2><%@user.books.each do |book|%></h2> 
-<h2>Book Title: <%=book.book_title%></h2>
-<h3>Author: <%=book.author%></h3>
-<h3>Genre: <%=book.book_genre%></h3>
+<h2><%=book.book_title%></h2>
 
 
 <br><a href="/books/<%= book.id %>/edit" class="button">Edit</a></b>
 
-<form action="/books/<%= book.id %>/delete" method="post">
+<form action="/books/<%= book.id %>/:id" method="post">
             <input id="hidden" type="hidden" name="_method" value="delete">
     
      <button class="button">Delete</button>
 
- <br><%end%>
+ <br><%end%><br/>
+
 
  <a href="/books/new" class="block">Add Books</a>
  </div>
 
  <div style="text-align: center;">
 <h1> BookGenie  </h1>
- <br><h1>F E E D</h1>  
+ <br><h1>F E E D</h1>  <br/>
+
+ <br/>
 
 
 
