@@ -326,3 +326,31 @@ edit.erb
  <br><%end%>
 
  </div>
+  # get '/delete' do 
+        #   if logged_in?
+        #     @user = current_user
+        #     erb :'books/delete'
+        #   end 
+        # end 
+
+      #   get '/books/:id/delete' do 
+      #     #binding.pry
+      #     if logged_in?
+      #       @user = current_user
+      #     @book = Book.find_by_id(params[:id])
+      #     erb :'books/index'
+      #   end
+      # end 
+
+ ----
+
+ get '/edit' do 
+          if logged_in?
+            @user = current_user
+             @book = @user.book
+             erb :'books/edit'
+          end 
+        end
+
+
+---

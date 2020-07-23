@@ -15,6 +15,7 @@ gem 'faker'
 gem 'launchy'
 gem 'rack-flash3'
 gem 'sinatra-flash'
+gem 'dotenv'
 
 group :test do
   gem 'rspec'

@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
     #set a session secret for extra security layer
     register Sinatra::Flash
     #registers sinatra flash gem/functionality 
-    set :session_secret, "f650ed69344bab0084199bb8cc9aa5a1bd6756c3b57ad67023255af0fc3795057e"
+    set :session_secret, ENV.fetch("SECRET") 
   end
 
   get '/' do
@@ -28,21 +28,22 @@ class ApplicationController < Sinatra::Base
       end       
   end
 
-helpers do
-  def current_user
-    @user = User.find_by_id(session[:user_id])
+  helpers do
+    def current_user
+      @user = User.find_by_id(session[:user_id])
+    end
+
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def authorized_to_edit?(book)
+      book.user_id == current_user.id
+    end
+
+    def redirect_if_not_logged_in
+      redirect '/login' if !logged_in?
+    end
   end
-
-  def logged_in?
-    !!session[:user_id]
-  end
-
-  def authorized_to_edit?(book)
-    book.user_id == current_user.id
-  end
-
-end
-
-
-
+  
 end 

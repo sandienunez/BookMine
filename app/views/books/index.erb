@@ -26,6 +26,7 @@
 <h3>Author: <%=book.author%></h3>
 <h3>Genre: <%=book.book_genre%></h3>
 
+
 <br><a href="/books/<%= book.id %>/edit" class="button">Edit</a></b>
 
 <form action="/books/<%= book.id %>/delete" method="post">
@@ -33,14 +34,16 @@
     
      <button class="button">Delete</button>
 
-
-
-
  <br><%end%>
-
 
  <a href="/books/new" class="block">Add Books</a>
  </div>
+
+ <div style="text-align: center;">
+<h1> BookGenie  </h1>
+ <br><h1>F E E D</h1>  
+
+
 
 
   

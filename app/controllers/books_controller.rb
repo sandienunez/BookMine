@@ -5,22 +5,20 @@ class BooksController < ApplicationController
 
       #CREATE --> NEW ACTION, renders new view
 
-
-      post '/books' do
-        if logged_in?
-          @user = current_user #making connection with book and user class, fetching user instance for current user 
-          @book = Book.create(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
-          @book.user = @user
-          @book.save
-          #binding.pry
-          if @book.save
-              redirect "/books/#{@book.id}"
-            else
-              #binding.pry
-              redirect '/books/new'
-            end 
-        end 
-    end
+post '/books' do
+   if logged_in?
+      @user = current_user #making connection with book and user class, fetching user instance for current user 
+      @book = Book.create(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
+#@book = Book.create(book_title: params[:Book Title], author: params[:Author], book_genre: params[:Book Genre], number_of_pages: params[:Number of Pages], start: params[:start], end: params[:end], time_one: params[time_1], time_two: params[time_2], read: params[:read])
+       @book.user = @user
+       @book.save
+    if @book.save
+      redirect "/books/#{@book.id}"
+    else
+      redirect '/books/new'
+    end 
+  end 
+end
         #READ: index action, renders an index view 
 
        get '/books/new' do
@@ -39,30 +37,6 @@ class BooksController < ApplicationController
             redirect '/'
           end 
         end
-
-        get '/edit' do 
-          if logged_in?
-            @user = current_user
-             @book = @user.book
-             erb :'books/edit'
-          end 
-        end
-
-        # get '/delete' do 
-        #   if logged_in?
-        #     @user = current_user
-        #     erb :'books/delete'
-        #   end 
-        # end 
-
-      #   get '/books/:id/delete' do 
-      #     #binding.pry
-      #     if logged_in?
-      #       @user = current_user
-      #     @book = Book.find_by_id(params[:id])
-      #     erb :'books/index'
-      #   end
-      # end 
     
      get '/books/:id' do 
       if logged_in?
@@ -103,6 +77,7 @@ end
 
 
      patch '/books/:id' do
+        current_user.books.find_by_id(params[:id])
         book = Book.find_by_id(params[:id])
         book.update(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
         redirect "/books/#{book.id}"
