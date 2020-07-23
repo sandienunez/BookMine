@@ -28,9 +28,20 @@ Eventually, BookGenie will be a fully-fledged website. Currently, installation o
     1. Run 'rake db:migrate' from your command line.
     2. Run 'shotgun' from your command line. Then you can go to your browser and view the application.
     3. Visit localhost:[port-number] (the port number will be specified after running shotgun).
-    
 
 From there, you can create your personal BookGenie reading lists, add books, edit books and delete books! Make sure to listen to our bomb reading playlist to jam along to while you get your inner reading book worm on!
+
+## Restful Routes and CRUD Actions
+
+  | HTTP VERB | ROUTE | ACTION   | CRUD Function |
+| ------------- |-------------| ----------- | ------------------- |
+| GET |  /books  | index | Read |
+| GET | /books/:id | show | Read |
+| GET | /books/new | new | Create |
+| POST | /books | create | Create |
+| GET | /books/:id/edit | edit | Update |
+| PATCH (PUT)* | /books/:id | update | Update |
+| DELETE | /books/:id | delete | Delete |
 
 ## Contributing
 
