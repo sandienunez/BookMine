@@ -13,11 +13,11 @@ class BooksController < ApplicationController
 
   post '/books' do
     if logged_in?
-        @user = current_user #making connection with book and user class, fetching user instance for current user 
-        @book = Book.create(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
-        #@book = Book.create(book_title: params[:Book Title], author: params[:Author], book_genre: params[:Book Genre], number_of_pages: params[:Number of Pages], start: params[:start], end: params[:end], time_one: params[time_1], time_two: params[time_2], read: params[:read])
-        @book.user = @user
-        @book.save
+      @user = current_user #making connection with book and user class, fetching user instance for current user 
+      @book = Book.create(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
+      #@book = Book.create(book_title: params[:Book Title], author: params[:Author], book_genre: params[:Book Genre], number_of_pages: params[:Number of Pages], start: params[:start], end: params[:end], time_one: params[time_1], time_two: params[time_2], read: params[:read])
+      @book.user = @user
+      @book.save
       if @book.save
         redirect "/books/#{@book.id}"
       else
@@ -40,16 +40,16 @@ class BooksController < ApplicationController
 #<---READ --->  get '/books/:id' = called show action, renders a show view 
 
   get '/books/:id' do 
-      if logged_in?
-        @book = Book.find_by_id(params[:id])
-      if session[:user_id] == @book.user_id
+    if logged_in?
+      @book = Book.find_by_id(params[:id])
+      if session[:user_id] == @book.user_id #look it up
         erb :'books/show'
-      else 
-        redirect '/books' #to routes 
+        else 
+          redirect '/books' #to routes 
       end 
-      else 
-        redirect '/login'
-      end 
+    else 
+      redirect '/login'
+    end 
   end  
 
 #<---UPDATE --->  get '/books/:id/edit' = called edit action, renders edit view

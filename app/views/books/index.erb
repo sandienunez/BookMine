@@ -1,20 +1,18 @@
- <br>
- <div class="main">
+<div class="main">
 <div style="text-align: right;">
-<a href="/logout" class="button">Log Out</a>
+    <a href="/logout" class="button">Log Out</a>
 </div>
     <ul>
         <li> <a href="/home" class="button">Home-Playlist</a></li>
         <li> <a href="/books" class="button">My Bookgenie List</a></li>
-    </ul>
-   
+    </ul>   
 </div>
 
  
 <div style="text-align: center;">
-<h1>M Y  </h1>
-<br><h3>B O O K G E N I E</h3>  
-<br><h1>L I S T </h1>  
+    <h1>M Y </h1>
+    <h3>B O O K G E N I E</h3>  
+    <h1>L I S T </h1>  
 </div>
 
 <div style="text-align: center;">
@@ -22,18 +20,17 @@
 
 
 
-<h2><%@user.books.each do |book|%></h2> 
-<h2><%=book.book_title%></h2>
+<% @user.books.each do |book| %>
+    <h2><%= book.book_title %></h2>
+<% end %> 
 
 
 <br><a href="/books/<%= book.id %>/edit" class="button">Edit</a></b>
 
-<form action="/books/<%= book.id %>/:id" method="post">
-            <input id="hidden" type="hidden" name="_method" value="delete">
-    
-     <button class="button">Delete</button>
-
- <br><%end%><br/>
+<form action="/books/<%= @book.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Book?">
+</form>
 
 
  <a href="/books/new" class="block">Add Books</a>
@@ -43,7 +40,6 @@
 <h1> BookGenie  </h1>
  <br><h1>F E E D</h1>  <br/>
 
- <br/>
 
 
 

@@ -20,31 +20,32 @@
 
 <h1><%= @book.book_title %></h2>
 <h3>Author: </h3>
-<p> <%=@book.author%></p>
+<p> <%= @book.author %></p>
 <h3>Genre: </h3>
-<p> <%=@book.book_genre%></p>
+<p> <%= @book.book_genre %></p>
 <h3>Number of Pages: </h3>
-<p> <%=@book.number_of_pages%></p>
+<p> <%= @book.number_of_pages %></p>
 <h3>I will start this book on:  </h3>
-<p> <%=@book.start%></p>
+<p> <%= @book.start %></p>
 <h3>I will finish this book by: </h3>
-<p> <%=@book.end%></p>
+<p> <%= @book.end %></p>
 <h3>1st time I can read this book: </h3>
-<p> <%=@book.time_one%></p>
+<p> <%= @book.time_one %></p>
 <h3>2nd time I can read this book: </h3>
-<p> <%=@book.time_two%></p>
+<p> <%= @book.time_two %></p>
 <h3>Have I read this book yet?</h3>
-<p> <%=@book.read%></p>
+<p> <%= @book.read %></p>
 
 
 <a href="/books/<%= @book.id %>/edit" class="button">Edit</a></b>
 
-<form method="POST" action="books/<%= @book.id %>%"> 
+<form method="POST" action="books/<%= @book.id %>"> 
     <input id="hidden" type="hidden" name="_method" value="delete">
     <button class="button">Delete</button>
 </form>
 
  </div>
+
 
 
 
