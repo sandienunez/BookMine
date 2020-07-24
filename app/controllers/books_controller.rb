@@ -84,7 +84,7 @@ class BooksController < ApplicationController
 #<---DELETE ---> delete '/books/:id' do = called delete action, deletes resource, then redirects --> triggered by button in the show and or index view
 
   delete '/books/:id' do
-    binding.pry
+     binding.pry
       @book = Book.find_by_id(params[:id])
       if authorized_to_edit?(@book)
         @book.destroy 
