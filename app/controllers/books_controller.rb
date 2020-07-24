@@ -15,7 +15,6 @@ class BooksController < ApplicationController
     if logged_in?
       @user = current_user #making connection with book and user class, fetching user instance for current user 
       @book = Book.create(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
-      #@book = Book.create(book_title: params[:Book Title], author: params[:Author], book_genre: params[:Book Genre], number_of_pages: params[:Number of Pages], start: params[:start], end: params[:end], time_one: params[time_1], time_two: params[time_2], read: params[:read])
       @book.user = @user
       @book.save
       if @book.save
@@ -42,10 +41,10 @@ class BooksController < ApplicationController
   get '/books/:id' do 
     if logged_in?
       @book = Book.find_by_id(params[:id])
-      if session[:user_id] == @book.user_id #look it up
+      if session[:user_id] == @book.user_id 
         erb :'books/show'
         else 
-          redirect '/books' #to routes 
+          redirect '/books' 
       end 
     else 
       redirect '/login'
@@ -56,15 +55,12 @@ class BooksController < ApplicationController
   get '/books/:id/edit' do
     if logged_in?
       @user = current_user
-      #explain is this too dry?
       @book = Book.find_by_id(params[:id])
-      #go over find by id 
-      # :id = means dynamic, can change
       erb :'books/edit'
     if authorized_to_edit?(@book)
       erb :'books/edit'
     else
-      flash[:error] = "You are not authorized to edit these books! You are not the user! :)"
+      flash[:error] = "Hey! Genie says you're not authorized to edit this book! So VAMOOSE! Yeah you get outta here!"
       redirect '/books'
     end 
     else 
@@ -75,19 +71,22 @@ class BooksController < ApplicationController
 #<---UPDATE ---> patch '/books/:id' do = called update action, handles form data submission, then redirects 
 
   patch '/books/:id' do
-    book = current_user.books.find_by_id(params[:id])
-    #finding the book from the collection of the user's books instead of going through ALL the books
-    book.update(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
-    redirect "/books/#{book.id}"
+    if logged_in?
+      book = Book.find_by_id(params[:id])
+      book.update(book_title: params["Book Title"], author: params["Author"], book_genre: params["Book Genre"], number_of_pages: params["Number of Pages"], start: params["start"], end: params["end"], time_one: params["time_1"], time_two: params["time_2"], read: params["read"])
+      redirect "/books/#{book.id}"
+    else 
+      flash[:error] = "Sorry! Genie says you don't have access to edit this book! Scram! Or else Genie will banish you to 28895345345345353529 years stuck in the genie lamp! "
+      redirect "/"
+    end 
   end
 
 #<---DELETE ---> delete '/books/:id' do = called delete action, deletes resource, then redirects --> triggered by button in the show and or index view
 
   delete '/books/:id' do
-     binding.pry
-      @book = Book.find_by_id(params[:id])
-      if authorized_to_edit?(@book)
-        @book.destroy 
+      book = Book.find_by_id(params[:id])
+      if authorized_to_edit?(book)
+        book.destroy 
         redirect '/books'
       else
         redirect '/home'

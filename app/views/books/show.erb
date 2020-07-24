@@ -1,3 +1,12 @@
+<% if flash[:error] %>
+    <h2 style="color:blue;"><%= flash[:error] %></h2>
+<% end %>
+
+
+<% if flash[:notice] %>
+    <h2 style="color:white;"><%= flash[:notice] %></h2>
+<% end %>
+
 <div class="main">
 <div style="text-align: right;">
 <a href="/logout" class="button">Log Out</a>
@@ -13,11 +22,9 @@
 
 <div style="text-align: center;">
 
-<br><h1> Show me my book </h1></b> 
-<br><h1>G E N I E </h1></b>
-
   <img src="/images/books1.png" /> 
 
+<h3>Book Title: </h3>
 <h1><%= @book.book_title %></h2>
 <h3>Author: </h3>
 <p> <%= @book.author %></p>
@@ -39,11 +46,12 @@
 
 <a href="/books/<%= @book.id %>/edit" class="button">Edit</a></b>
 
-<form method="POST" action="books/<%= @book.id %>"> 
+<form method="POST" action="/books/<%= @book.id %>"> 
     <input id="hidden" type="hidden" name="_method" value="delete">
     <button class="button">Delete</button>
 </form>
 
+ <a href="/books/new" class="block">Add Books</a>
  </div>
 
 

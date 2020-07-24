@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     #add success message to flash hash
       redirect '/books'
     else
-      binding.pry 
+      #binding.pry 
       flash[:error] = "Invalid email or password. Please try again!"
     #show error message
     #this is where my error message will display (at the login route)

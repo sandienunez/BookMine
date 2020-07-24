@@ -1,3 +1,13 @@
+<% if flash[:error] %>
+    <h2 style="color:blue;"><%= flash[:error] %></h2>
+<% end %>
+
+
+<% if flash[:notice] %>
+    <h2 style="color:white;"><%= flash[:notice] %></h2>
+<% end %>
+
+
 <div class="main">
 <div style="text-align: right;">
     <a href="/logout" class="button">Log Out</a>
@@ -27,9 +37,7 @@
  <a href="/books/new" class="block">Add Books</a>
  </div>
 
- <div style="text-align: center;">
-<h1> BookGenie  </h1>
- <br><h1>F E E D</h1>  <br/>
+ 
 
 
 
