@@ -50,18 +50,21 @@ class BooksController < ApplicationController
 
 #<---UPDATE --->  get '/books/:id/edit' = called edit action, renders edit view
   get '/books/:id/edit' do
-    if redirect_if_not_logged_in
+    if logged_in?
       @user = current_user
       @book = Book.find_by_id(params[:id])
       erb :'books/edit'
-        if authorized_to_edit?(@book)
-          erb :'books/edit'
-        else
-          flash[:error] = "Hey! Genie says you're not authorized to edit this book! So VAMOOSE! Yeah you get outta here!"
-          redirect '/books'
-        end 
+    if authorized_to_edit?(@book)
+      erb :'books/edit'
+    else
+      flash[:error] = "Hey! Genie says you're not authorized to edit this book! So VAMOOSE! Yeah you get outta here!"
+      redirect '/books'
+    end
+    else
+      redirect '/login'
     end
   end
+
 
 #<---UPDATE ---> patch '/books/:id' do = called update action, handles form data submission, then redirects 
 
