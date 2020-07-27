@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   get '/signup' do
     if !session[:id] #if its false
       erb :'users/signup' 
-  #I want my user to go to sign up page so redirect them to users/signup
     end
   end 
     

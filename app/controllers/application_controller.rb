@@ -35,6 +35,7 @@ class ApplicationController < Sinatra::Base
 
     def logged_in?
       !!session[:user_id]
+      #returns boolean if user is logged in or not 
     end
 
     def authorized_to_edit?(book)

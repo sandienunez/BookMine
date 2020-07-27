@@ -7,11 +7,9 @@ class SessionsController < ApplicationController
     
   post '/login' do
 #receive data (params) from the login form
-#binding.pry 
       user = User.find_by(email: params[:email].strip)
     #find the user
     if user && user.authenticate(params[:password])
-      #binding.pry 
     #authenticate the user
       session[:user_id] = user.id 
     #create key/value pair in session using users id to actually log them in
@@ -19,7 +17,6 @@ class SessionsController < ApplicationController
     #add success message to flash hash
       redirect '/books'
     else
-      #binding.pry 
       flash[:error] = "Invalid email or password. Please try again!"
     #show error message
     #this is where my error message will display (at the login route)
