@@ -75,14 +75,14 @@
      
      <hr><label>1st time I can read (Atleast 5 minutes): </label>
      <hr><label for="time">Select a time:</label>
-  <input type="time" id="1st_time" name="time_1" value="<%= @book.time_one %>">
+  <input type="time" id="1st_time" name="time_1" value="<%= @book.time_one && @book.time_one.strftime('%H:%M') %>">
   
 
      </select>
      <p>  </p>
      <hr><label>2nd time I can read (Atleast 5 minutes):</label>
      <hr><label for="time">Select a time:</label>
-     <input type="time" id="2nd_time" name="time_2" value="<%= @book.time_two %>">
+     <input type="time" id="2nd_time" name="time_2" value="<%= @book.time_two && @book.time_two.strftime('%H:%M') %>">
         
 	 </select>
      <p>  </p>

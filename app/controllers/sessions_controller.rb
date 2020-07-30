@@ -1,14 +1,19 @@
 class SessionsController < ApplicationController
 
   get '/login' do
-    erb :'sessions/login'
-#render my login form
-  end
+    if logged_in?
+      redirect '/books'
+    else 
+      erb :'sessions/login'
+    end
+  end 
+    #prevent login form from showing if user is already logged in
+#render my login form to user 
     
   post '/login' do
 #receive data (params) from the login form
       user = User.find_by(email: params[:email].strip)
-    #find the user
+    #find the user with value of params
     if user && user.authenticate(params[:password])
     #authenticate the user
       session[:user_id] = user.id 
